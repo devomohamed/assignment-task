@@ -1,0 +1,30 @@
+<header class="py-2">
+  <div class="container d-flex justify-content-between">
+    <button class="btn" (click)="openSideMenu()">
+      <i class="bi bi-text-paragraph"></i>
+    </button>
+    <div class="avatar">
+      <div ngbDropdown class="d-inline-block">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          id="dropdownBasic1"
+          ngbDropdownToggle
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp"
+            class="rounded-circle"
+            height="22"
+            alt="Avatar"
+            loading="lazy"
+          />
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>Action - 1</button>
+          <button ngbDropdownItem>Another Action</button>
+          <button ngbDropdownItem>Something else is here</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
