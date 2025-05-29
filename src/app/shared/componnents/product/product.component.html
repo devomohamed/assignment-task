@@ -1,0 +1,33 @@
+<div class="card">
+  <div
+    class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+    data-mdb-ripple-color="light"
+  >
+    <img
+      style="height: 200px; object-fit: cover"
+      [src]="image"
+      class="w-100"
+      (error)="handleImageError()"
+    />
+  </div>
+  <div class="card-body">
+    <a routerLink="/product/{{ product.id }}" class="text-reset">
+      <h5 class="card-title mb-3 truncate-1-lines">{{ product.title }}</h5>
+    </a>
+    <a class="text-reset">
+      <p>{{ product.category?.name }}</p>
+    </a>
+    <div
+      class="card-footer text-end d-flex justify-content-between align-items-center"
+    >
+      <h6>${{ product.price }}</h6>
+      <a
+        routerLink="/product/product-details/{{ product.id }}"
+        class="btn btn-outline-primary"
+        title="View"
+      >
+        <i class="bi bi-eye-fill"></i>
+      </a>
+    </div>
+  </div>
+</div>

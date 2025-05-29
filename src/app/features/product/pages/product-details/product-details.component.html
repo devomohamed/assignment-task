@@ -1,1 +1,51 @@
-<p>product-details works!</p>
+<!-- product-details.component.html -->
+@if (productDetails) {
+<div class="product-details-container">
+  <div class="product-images">
+    <!-- Main image display -->
+    <div class="main-image">
+      <img
+        [src]="image"
+        [alt]="productDetails.title"
+        (error)="handleImageError($event)"
+      />
+    </div>
+
+    <!-- Thumbnail navigation -->
+    @if (productDetails.images) {
+    <div class="thumbnails">
+      @for (image of productDetails.images; track image; let i = $index) {
+      <div
+        class="thumbnail"
+        [class.active]="i === currentImageIndex"
+        (click)="currentImageIndex = i"
+      >
+        <img [src]="image" [alt]="'Thumbnail ' + (i + 1)" />
+      </div>
+      }
+    </div>
+    }
+  </div>
+
+  <div class="product-info">
+    <h1>{{ productDetails.title }}</h1>
+
+    <div class="price">
+      {{ productDetails.price | currency }}
+    </div>
+
+    <div class="description">
+      <h3>Description</h3>
+      <p>{{ productDetails.description }}</p>
+    </div>
+
+    @if (productDetails.creationAt) {
+    <div class="meta">
+      <small>Added on {{ productDetails.creationAt | date }}</small>
+    </div>
+    }
+  </div>
+</div>
+} @else {
+<div class="loading">Loading product details...</div>
+}

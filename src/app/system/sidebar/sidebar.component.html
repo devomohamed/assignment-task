@@ -8,5 +8,39 @@
       (click)="offcanvas.dismiss('Cross click')"
     ></button>
   </div>
-  <div class="offcanvas-body"></div>
+  <div class="offcanvas-body">
+    <div ngbAccordion [closeOthers]="true">
+      @for (item of items; track item) {
+      <div ngbAccordionItem [collapsed]="item !== 'First'">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>{{ item }}</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              <ul>
+                <li>
+                  <a
+                    routerLink="/product/list"
+                    routerLinkActive="active"
+                    (click)="offcanvas.dismiss('Cross click')"
+                    >list</a
+                  >
+                </li>
+                <li>
+                  <a
+                    routerLink="/product/create"
+                    routerLinkActive="active"
+                    (click)="offcanvas.dismiss('Cross click')"
+                    >Create</a
+                  >
+                </li>
+              </ul>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
 </ng-template>

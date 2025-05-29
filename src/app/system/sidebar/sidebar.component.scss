@@ -1,0 +1,13 @@
+ul {
+  list-style-type: none;
+  li a {
+    text-decoration: none;
+    color: inherit;
+    &:hover,
+    &.active {
+      color: #0d6efd;
+    }
+    // display: block;
+    // padding: 8px 16px;
+  }
+}

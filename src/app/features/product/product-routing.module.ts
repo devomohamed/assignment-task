@@ -22,6 +22,13 @@ const routes: Routes = [
       ).then((m) => m.ProductCreateAndUpdateComponent),
   },
   {
+    path: 'product-details/:id',
+    loadComponent: () =>
+      import('./pages/product-details/product-details.component').then(
+        (m) => m.ProductDetailsComponent
+      ),
+  },
+  {
     path: ':id',
     loadComponent: () =>
       import(

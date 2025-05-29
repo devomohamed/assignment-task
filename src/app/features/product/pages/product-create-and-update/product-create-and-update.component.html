@@ -1,1 +1,67 @@
-<p>product-create-and-update works!</p>
+<div class="product-form">
+  <div class="title">
+    <h2>{{ productId ? "Update Product" : "Create Product" }}</h2>
+    @if (productId) {
+    <p>You can update the product details below.</p>
+    } @if (!productId) {
+    <p>Please fill in the product details to create a new product.</p>
+    }
+  </div>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Product Title</label>
+      <input
+        type="text"
+        id="title"
+        formControlName="title"
+        class="form-control"
+      />
+      @if (productForm.get('title')?.invalid &&
+      productForm.get('title')?.touched) {
+      <div class="error-message">
+        Title is required and must be at least 3 characters
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="form-control"
+        rows="4"
+      ></textarea>
+      @if (productForm.get('description')?.invalid &&
+      productForm.get('description')?.touched) {
+      <div class="error-message">
+        Description is required and must be at least 10 characters
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price ($)</label>
+      <input
+        type="number"
+        id="price"
+        formControlName="price"
+        class="form-control"
+        step="0.01"
+        min="0.01"
+      />
+      @if (productForm.get('price')?.invalid &&
+      productForm.get('price')?.touched) {
+      <div class="error-message">Valid price is required (minimum $0.01)</div>
+      }
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="productForm.invalid"
+      class="btn btn-primary mt-2"
+    >
+      {{ productId ? "Update Product" : "Create Product" }}
+    </button>
+  </form>
+</div>

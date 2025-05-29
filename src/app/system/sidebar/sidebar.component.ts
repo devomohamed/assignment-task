@@ -7,16 +7,18 @@ import {
   ViewChild,
   WritableSignal,
 } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import {
   NgbDatepickerModule,
   NgbOffcanvas,
   OffcanvasDismissReasons,
 } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [],
+  imports: [NgbAccordionModule, RouterModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
@@ -24,6 +26,7 @@ export class SidebarComponent {
   private offcanvasService = inject(NgbOffcanvas);
   closeResult: WritableSignal<string> = signal('');
   @ViewChild('content') content: ElementRef | undefined;
+  items = ['Product'];
 
   open() {
     this.offcanvasService
