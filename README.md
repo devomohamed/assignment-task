@@ -12,7 +12,7 @@ This project demonstrates Angular (v17+) proficiency by implementing:
 
 ## Live Demo
 
-[Add Netlify/Vercel/Firebase link if deployed]  
+https://assignment-task-seven.vercel.app/
 _(Optional: Include a screenshot of the UI)_
 
 ## Features Implemented
