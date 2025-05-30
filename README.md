@@ -13,7 +13,6 @@ This project demonstrates Angular (v17+) proficiency by implementing:
 ## Live Demo
 
 https://assignment-task-seven.vercel.app/
-_(Optional: Include a screenshot of the UI)_
 
 ## Features Implemented
 
